@@ -19,6 +19,4 @@ public interface Vector<T> {
     double length();
 
     void normalize();
-
-    double scalarProduct(T v);
 }

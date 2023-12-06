@@ -2,7 +2,7 @@ package com.meow.vectors;
 
 public class Vector2f extends AbstractVector<Vector2f> {
 
-    protected Vector2f(double[] coords) {
+    public Vector2f(double[] coords) {
         super(2, coords);
     }
 

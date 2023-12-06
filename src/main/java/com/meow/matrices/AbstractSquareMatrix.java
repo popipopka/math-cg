@@ -2,6 +2,8 @@ package com.meow.matrices;
 
 import com.meow.vectors.Vector;
 
+import java.util.Arrays;
+
 public abstract class AbstractSquareMatrix<T extends SquareMatrix, V extends Vector> implements SquareMatrix<T, V> {
     protected double[][] data;
     private final int size;
@@ -19,12 +21,41 @@ public abstract class AbstractSquareMatrix<T extends SquareMatrix, V extends Vec
     }
 
     @Override
-    public void setValue(int row, int col, double value) {
-        if (row > size || col > size) {
-            throw new IndexOutOfBoundsException("Заданы неверные аргументы row или col");
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        this.data[row][col] = value;
+        AbstractSquareMatrix<?, ?> that = (AbstractSquareMatrix<?, ?>) o;
+
+        if (size != that.size) return false;
+        return Arrays.deepEquals(data, that.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(data);
+    }
+
+    @Override
+    public void setNull() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                this.data[i][j] = 0;
+            }
+        }
+    }
+
+    @Override
+    public void setUnit() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i == j) {
+                    this.data[i][j] = 1;
+                    continue;
+                }
+                this.data[i][j] = 0;
+            }
+        }
     }
 
     protected abstract T initialCreateMatrix(double[][] data);
@@ -64,7 +95,7 @@ public abstract class AbstractSquareMatrix<T extends SquareMatrix, V extends Vec
         double[] vCoord = v.getCoords();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                newData[i] += this.data[i][j] * vCoord[i];
+                newData[i] += this.data[i][j] * vCoord[j];
             }
         }
         return initialCreateVector(newData);
@@ -78,7 +109,7 @@ public abstract class AbstractSquareMatrix<T extends SquareMatrix, V extends Vec
             for (int j = 0; j < size; j++) {
 
                 for (int k = 0; k < size; k++) {
-                    newData[i][j] += this.data[k][j] * m.getData()[j][k];
+                    newData[i][j] += this.data[i][k] * m.getData()[k][j];
                 }
             }
         }

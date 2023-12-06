@@ -8,9 +8,12 @@ package com.meow.matrices;
  *     vector type
  */
 public interface SquareMatrix<T, V> {
-    void setValue(int row, int col, double value);
 
     double[][] getData();
+
+    void setNull();
+
+    void setUnit();
 
     T add(T m);
 
