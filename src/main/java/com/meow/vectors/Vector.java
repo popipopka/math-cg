@@ -1,4 +1,4 @@
-package vectors;
+package com.meow.vectors;
 
 /**
  *

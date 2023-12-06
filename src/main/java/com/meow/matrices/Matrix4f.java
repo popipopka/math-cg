@@ -1,6 +1,6 @@
-package matrices;
+package com.meow.matrices;
 
-import vectors.Vector4f;
+import com.meow.vectors.Vector4f;
 
 public class Matrix4f extends AbstractSquareMatrix<Matrix4f, Vector4f> {
     protected Matrix4f(double[][] data) {

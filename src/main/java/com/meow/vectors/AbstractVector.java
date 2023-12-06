@@ -1,4 +1,4 @@
-package vectors;
+package com.meow.vectors;
 
 /**
  *
@@ -6,7 +6,7 @@ package vectors;
  *     vector type
  */
 
-public abstract class AbstractVector<T extends Vector<T>> implements Vector<T> {
+public abstract class AbstractVector<T extends Vector> implements Vector<T> {
     protected double[] coords;
 
     protected AbstractVector(int expectedSize, double[] coords) {

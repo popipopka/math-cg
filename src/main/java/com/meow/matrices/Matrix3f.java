@@ -1,6 +1,6 @@
-package matrices;
+package com.meow.matrices;
 
-import vectors.Vector3f;
+import com.meow.vectors.Vector3f;
 
 public class Matrix3f extends AbstractSquareMatrix<Matrix3f, Vector3f> {
 

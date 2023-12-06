@@ -1,6 +1,6 @@
-package matrices;
+package com.meow.matrices;
 
-import vectors.Vector;
+import com.meow.vectors.Vector;
 
 public abstract class AbstractSquareMatrix<T extends SquareMatrix, V extends Vector> implements SquareMatrix<T, V> {
     protected double[][] data;

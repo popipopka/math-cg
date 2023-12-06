@@ -1,4 +1,4 @@
-package vectors;
+package com.meow.vectors;
 
 public class Vector3f extends AbstractVector<Vector3f> {
     public Vector3f(double[] coords) {

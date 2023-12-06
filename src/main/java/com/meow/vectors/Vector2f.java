@@ -1,4 +1,4 @@
-package vectors;
+package com.meow.vectors;
 
 public class Vector2f extends AbstractVector<Vector2f> {
 

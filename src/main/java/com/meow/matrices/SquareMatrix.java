@@ -1,4 +1,4 @@
-package matrices;
+package com.meow.matrices;
 
 /**
  *
