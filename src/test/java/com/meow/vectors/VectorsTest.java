@@ -94,15 +94,27 @@ class VectorsTest {
     }
 
     @Test
-    void scalarProduct() {
+    void product() {
         Vector3f v1 = new Vector3f(new double[]{1, 2, 3});
         Vector3f v2 = new Vector3f(new double[]{4, 5, 6});
 
 
-        Vector3f expected = v1.scalarProduct(v2);
+        Vector3f expected = v1.product(v2);
         Vector3f actual = new Vector3f(new double[]{-3, 6, -3});
 
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void scalarProduct() {
+        Vector3f v1 = new Vector3f(new double[]{-7, 2, 0});
+        Vector3f v2 = new Vector3f(new double[]{9, 1, 3});
+
+        double expected = v1.scalarProduct(v2);
+        double actual = -61;
+
+
+        Assertions.assertEquals(0, Double.compare(expected, actual));
     }
 }

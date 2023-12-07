@@ -89,4 +89,13 @@ public abstract class AbstractVector<T extends Vector> implements Vector<T> {
 
         if (length != 0) divide(length);
     }
+
+    @Override
+    public double scalarProduct(T v) {
+        double result = 0;
+        for (int i = 0; i < size; i++) {
+            result += this.coords[i] * v.getCoords()[i];
+        }
+        return result;
+    }
 }
